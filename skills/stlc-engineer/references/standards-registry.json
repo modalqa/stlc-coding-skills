@@ -1,0 +1,273 @@
+{
+  "schema_version": "1.0",
+  "registry_version": "0.1.0",
+  "last_reviewed": "2026-10-25",
+  "status_values": [
+    "verified",
+    "partially_verified",
+    "unverified"
+  ],
+  "rule": "Cite clause numbers only if listed in verified_clauses. Entries not 'verified' must be cited with 'edition needs verification'.",
+  "entries": [
+    {
+      "id": "ISO/IEC/IEEE 29119-1:2022",
+      "title": "Software and systems engineering — Software testing — Part 1: General concepts",
+      "edition": "2022",
+      "kind": "normative_standard",
+      "verification_status": "unverified",
+      "verification_note": "iso.org returned HTTP 403 to automated retrieval on 2026-10-25; edition taken from PRD STLC-AGENT-PRD-001 Appendix A. Verify manually before release.",
+      "official_source": "https://www.iso.org/standard/81291.html",
+      "verified_on": null,
+      "verified_by": null,
+      "usage_area": "Terminology and general testing concepts",
+      "workflow_mapping": [
+        "SKILL.md",
+        "references/stlc-workflow.md",
+        "references/artifact-schemas.md"
+      ],
+      "verified_clauses": [],
+      "license_note": "Copyrighted standard. Do not reproduce its text; cite by identifier and edition only. Obtain copies from ISO/IEC/IEEE.",
+      "limitations": "Using this skill does not make a project conformant or certified to this standard.",
+      "optional": false
+    },
+    {
+      "id": "ISO/IEC/IEEE 29119-2:2021",
+      "title": "Software and systems engineering — Software testing — Part 2: Test processes",
+      "edition": "2021",
+      "kind": "normative_standard",
+      "verification_status": "unverified",
+      "verification_note": "iso.org returned HTTP 403 to automated retrieval on 2026-10-25; edition taken from PRD STLC-AGENT-PRD-001 Appendix A. Verify manually before release.",
+      "official_source": "https://standards.ieee.org/ieee/29119-2/7498/",
+      "verified_on": null,
+      "verified_by": null,
+      "usage_area": "Test process mapping (planning, monitoring and control, design and implementation, environment, execution, completion)",
+      "workflow_mapping": [
+        "references/stlc-workflow.md",
+        "Phases 1-6",
+        "Gates A-F"
+      ],
+      "verified_clauses": [],
+      "license_note": "Copyrighted standard. Do not reproduce its text; cite by identifier and edition only. Obtain copies from ISO/IEC/IEEE.",
+      "limitations": "Using this skill does not make a project conformant or certified to this standard.",
+      "optional": false
+    },
+    {
+      "id": "ISO/IEC/IEEE 29119-3:2021",
+      "title": "Software and systems engineering — Software testing — Part 3: Test documentation",
+      "edition": "2021",
+      "kind": "normative_standard",
+      "verification_status": "unverified",
+      "verification_note": "iso.org returned HTTP 403 to automated retrieval on 2026-10-25; edition taken from PRD STLC-AGENT-PRD-001 Appendix A. Verify manually before release.",
+      "official_source": "https://www.iso.org/standard/79429.html",
+      "verified_on": null,
+      "verified_by": null,
+      "usage_area": "Test documentation structure (plans, specifications, reports)",
+      "workflow_mapping": [
+        "templates/test-plan.md",
+        "templates/test-cases.md",
+        "templates/test-execution-report.md",
+        "templates/test-closure-report.md"
+      ],
+      "verified_clauses": [],
+      "license_note": "Copyrighted standard. Do not reproduce its text; cite by identifier and edition only. Obtain copies from ISO/IEC/IEEE.",
+      "limitations": "Using this skill does not make a project conformant or certified to this standard.",
+      "optional": false
+    },
+    {
+      "id": "ISO/IEC/IEEE 29119-4:2021",
+      "title": "Software and systems engineering — Software testing — Part 4: Test techniques",
+      "edition": "2021",
+      "kind": "normative_standard",
+      "verification_status": "unverified",
+      "verification_note": "iso.org returned HTTP 403 to automated retrieval on 2026-10-25; edition taken from PRD STLC-AGENT-PRD-001 Appendix A. Verify manually before release.",
+      "official_source": "https://www.iso.org/standard/79430.html",
+      "verified_on": null,
+      "verified_by": null,
+      "usage_area": "Test design technique selection and terminology",
+      "workflow_mapping": [
+        "references/test-design-techniques.md",
+        "Phase 3"
+      ],
+      "verified_clauses": [],
+      "license_note": "Copyrighted standard. Do not reproduce its text; cite by identifier and edition only. Obtain copies from ISO/IEC/IEEE.",
+      "limitations": "Using this skill does not make a project conformant or certified to this standard.",
+      "optional": false
+    },
+    {
+      "id": "ISO/IEC/IEEE 29119-5:2024",
+      "title": "Software and systems engineering — Software testing — Part 5: Keyword-driven testing",
+      "edition": "2024",
+      "kind": "normative_standard",
+      "verification_status": "unverified",
+      "verification_note": "iso.org returned HTTP 403 to automated retrieval on 2026-10-25; edition taken from PRD STLC-AGENT-PRD-001 Appendix A. Verify manually before release.",
+      "official_source": "https://standards.ieee.org/ieee/29119-5/11042/",
+      "verified_on": null,
+      "verified_by": null,
+      "usage_area": "Keyword-driven automation, where applicable",
+      "workflow_mapping": [
+        "references/automation-guidelines.md"
+      ],
+      "verified_clauses": [],
+      "license_note": "Copyrighted standard. Do not reproduce its text; cite by identifier and edition only. Obtain copies from ISO/IEC/IEEE.",
+      "limitations": "Using this skill does not make a project conformant or certified to this standard.",
+      "optional": false
+    },
+    {
+      "id": "ISO/IEC 25010:2023",
+      "title": "Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Product quality model",
+      "edition": "2023",
+      "kind": "normative_standard",
+      "verification_status": "unverified",
+      "verification_note": "iso.org returned HTTP 403 to automated retrieval on 2026-10-25; edition taken from PRD STLC-AGENT-PRD-001 Appendix A. Verify manually before release. Characteristic names in references/requirement-analysis.md must be checked against this edition.",
+      "official_source": "https://www.iso.org/standard/78176.html",
+      "verified_on": null,
+      "verified_by": null,
+      "usage_area": "Deriving applicable quality characteristics for non-functional requirements and test types",
+      "workflow_mapping": [
+        "references/requirement-analysis.md",
+        "templates/test-approach.md",
+        "risk-register.csv:quality_characteristic"
+      ],
+      "verified_clauses": [],
+      "license_note": "Copyrighted standard. Do not reproduce its text; cite by identifier and edition only. Obtain copies from ISO/IEC/IEEE.",
+      "limitations": "Using this skill does not make a project conformant or certified to this standard.",
+      "optional": false
+    },
+    {
+      "id": "ISO/IEC 25002:2024",
+      "title": "Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Quality model overview and usage",
+      "edition": "2024",
+      "kind": "normative_standard",
+      "verification_status": "unverified",
+      "verification_note": "iso.org returned HTTP 403 to automated retrieval on 2026-10-25; edition taken from PRD STLC-AGENT-PRD-001 Appendix A. Verify manually before release.",
+      "official_source": "https://www.iso.org/standard/78175.html",
+      "verified_on": null,
+      "verified_by": null,
+      "usage_area": "How to apply quality models when deriving quality requirements",
+      "workflow_mapping": [
+        "references/requirement-analysis.md"
+      ],
+      "verified_clauses": [],
+      "license_note": "Copyrighted standard. Do not reproduce its text; cite by identifier and edition only. Obtain copies from ISO/IEC/IEEE.",
+      "limitations": "Using this skill does not make a project conformant or certified to this standard.",
+      "optional": false
+    },
+    {
+      "id": "ISTQB CTFL v4.0.1",
+      "title": "ISTQB Certified Tester Foundation Level Syllabus",
+      "edition": "v4.0.1",
+      "kind": "knowledge_reference",
+      "verification_status": "verified",
+      "verification_note": "Syllabus download on the official ISTQB CTFL page is labelled v4.0.1 (checked 2026-10-25). Syllabus release date not stated on that page.",
+      "official_source": "https://www.istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/",
+      "verified_on": "2026-10-25",
+      "verified_by": "automated web check during initial implementation",
+      "usage_area": "Core testing knowledge: test levels and types, techniques, risk-based testing, defect management",
+      "workflow_mapping": [
+        "references/test-design-techniques.md",
+        "references/risk-based-testing.md",
+        "references/execution-and-evidence.md"
+      ],
+      "verified_clauses": [],
+      "license_note": "Reference per ISTQB terms of use; do not copy syllabus content wholesale.",
+      "limitations": "Knowledge reference, not a normative standard; using it is not a certification claim.",
+      "optional": false
+    },
+    {
+      "id": "ISTQB CT-GenAI v1.1",
+      "title": "ISTQB Certified Tester – Testing with Generative AI (CT-GenAI) Syllabus",
+      "edition": "v1.1",
+      "kind": "knowledge_reference",
+      "verification_status": "verified",
+      "verification_note": "Official ISTQB page lists 'CT-GenAI – Syllabus v1.1' (checked 2026-10-25).",
+      "official_source": "https://istqb.org/certifications/gen-ai/",
+      "verified_on": "2026-10-25",
+      "verified_by": "automated web check during initial implementation",
+      "usage_area": "Responsible use of generative AI (this agent) in testing: hallucination risk, verification of AI output",
+      "workflow_mapping": [
+        "SKILL.md §2 non-negotiable rules",
+        "references/execution-and-evidence.md"
+      ],
+      "verified_clauses": [],
+      "license_note": "Reference per ISTQB terms of use; do not copy syllabus content wholesale.",
+      "limitations": "Knowledge reference, not a normative standard.",
+      "optional": false
+    },
+    {
+      "id": "ISTQB CT-AI v2.0",
+      "title": "ISTQB Certified Tester – AI Testing (CT-AI) Syllabus",
+      "edition": "v2.0",
+      "kind": "knowledge_reference",
+      "verification_status": "partially_verified",
+      "verification_note": "ISTQB news page announces CT-AI syllabus v2.0 (seen via search result 2026-10-25; syllabus PDF not checked on istqb.org). v1.0 exams retire in 2027 per ISTQB.",
+      "official_source": "https://istqb.org/istqb-releases-certified-tester-ai-testing-ct-ai-syllabus-version-2-0/",
+      "verified_on": null,
+      "verified_by": null,
+      "usage_area": "Testing AI-based systems under test, where applicable",
+      "workflow_mapping": [
+        "references/test-design-techniques.md (when the product under test is AI-based)"
+      ],
+      "verified_clauses": [],
+      "license_note": "Reference per ISTQB terms of use; do not copy syllabus content wholesale.",
+      "limitations": "Applies only when the system under test contains AI components.",
+      "optional": true
+    },
+    {
+      "id": "ISO/IEC 25059:2023",
+      "title": "Software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Quality model for AI systems",
+      "edition": "2023",
+      "kind": "normative_standard",
+      "verification_status": "unverified",
+      "verification_note": "No official URL recorded in the PRD; locate on iso.org and verify title/edition before use.",
+      "official_source": null,
+      "verified_on": null,
+      "verified_by": null,
+      "usage_area": "Quality model for AI-based products",
+      "workflow_mapping": [
+        "Only when the product under test is AI-based"
+      ],
+      "verified_clauses": [],
+      "license_note": "Copyrighted standard. Do not reproduce its text; cite by identifier and edition only. Obtain copies from ISO/IEC/IEEE.",
+      "limitations": "Using this skill does not make a project conformant or certified to this standard.",
+      "optional": true
+    },
+    {
+      "id": "ISO/IEC TR 29119-11:2020",
+      "title": "Software and systems engineering — Software testing — Part 11: Guidelines on the testing of AI-based systems",
+      "edition": "2020",
+      "kind": "normative_standard",
+      "verification_status": "unverified",
+      "verification_note": "No official URL recorded in the PRD; locate on iso.org and verify title/edition before use.",
+      "official_source": null,
+      "verified_on": null,
+      "verified_by": null,
+      "usage_area": "Testing AI-based systems",
+      "workflow_mapping": [
+        "Only when the product under test is AI-based"
+      ],
+      "verified_clauses": [],
+      "license_note": "Copyrighted standard. Do not reproduce its text; cite by identifier and edition only. Obtain copies from ISO/IEC/IEEE.",
+      "limitations": "Using this skill does not make a project conformant or certified to this standard.",
+      "optional": true
+    },
+    {
+      "id": "ISO/IEC TS 42119-2:2025",
+      "title": "Artificial intelligence — Testing of AI — Part 2 (title to be verified)",
+      "edition": "2025",
+      "kind": "normative_standard",
+      "verification_status": "unverified",
+      "verification_note": "iso.org returned HTTP 403 to automated retrieval on 2026-10-25; edition taken from PRD STLC-AGENT-PRD-001 Appendix A. Verify manually before release. Optional reference; title and edition unverified.",
+      "official_source": "https://www.iso.org/obp/ui?_escaped_fragment_=iso%3Astd%3Aiso-iec%3Ats%3A42119%3A-2%3Aed-1%3Av1%3Aen",
+      "verified_on": null,
+      "verified_by": null,
+      "usage_area": "Testing AI systems",
+      "workflow_mapping": [
+        "Only when the product under test is AI-based"
+      ],
+      "verified_clauses": [],
+      "license_note": "Copyrighted standard. Do not reproduce its text; cite by identifier and edition only. Obtain copies from ISO/IEC/IEEE.",
+      "limitations": "Using this skill does not make a project conformant or certified to this standard.",
+      "optional": true
+    }
+  ]
+}

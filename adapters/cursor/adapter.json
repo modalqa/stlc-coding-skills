@@ -1,0 +1,16 @@
+{
+  "adapter": "cursor",
+  "platform": "Cursor",
+  "status": "experimental",
+  "tested_versions": [],
+  "project_skill_dir": ".cursor/skills",
+  "user_skill_dir": "~/.cursor/skills",
+  "alternate_project_dirs": [
+    ".agents/skills"
+  ],
+  "invocation": "Agent selects the skill from its description; can also be referenced explicitly in chat.",
+  "extra_frontmatter": {},
+  "docs": "https://cursor.com/docs/skills",
+  "docs_checked_on": "2026-10-25",
+  "evaluation_reports": []
+}

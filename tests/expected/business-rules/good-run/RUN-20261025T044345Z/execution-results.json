@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0",
+  "run_id": "RUN-20261025T044345Z",
+  "environment": {
+    "os": "Darwin 24.3.0",
+    "runtime": "Python 3.12.1",
+    "test_framework": "unittest (Python 3.12.1 stdlib)",
+    "ci": false,
+    "git_commit": "49d73566f7694c65e1cfb99625339b5b596631a8",
+    "git_dirty": true
+  },
+  "commands": [
+    {
+      "command": "python3 -m unittest discover -s tests -t . -p 'test_*.py' --locals -k NONEXISTENT_COLLECT_ONLY",
+      "started_at": "2026-10-25T04:43:46Z",
+      "finished_at": "2026-10-25T04:43:47Z",
+      "exit_code": 5,
+      "log_ref": "evidence/01-collect.log"
+    },
+    {
+      "command": "python3 -m unittest -v tests.test_pricing",
+      "started_at": "2026-10-25T04:43:48Z",
+      "finished_at": "2026-10-25T04:43:48Z",
+      "exit_code": 0,
+      "log_ref": "evidence/02-existing-suite.log"
+    },
+    {
+      "command": "python3 -m unittest -v tests.test_pricing_boundaries",
+      "started_at": "2026-10-25T04:43:49Z",
+      "finished_at": "2026-10-25T04:43:49Z",
+      "exit_code": 1,
+      "log_ref": "evidence/03-boundary-suite.log"
+    },
+    {
+      "command": "python3 -m unittest -v tests.test_pricing_boundaries.PricingBoundaryTest.test_tc004_exactly_500_gets_ten_percent",
+      "started_at": "2026-10-25T04:43:50Z",
+      "finished_at": "2026-10-25T04:43:50Z",
+      "exit_code": 1,
+      "log_ref": "evidence/04-rerun-tc004.log"
+    }
+  ],
+  "results": [
+    {
+      "run_id": "RUN-20261025T044345Z",
+      "test_case_id": "TC-001",
+      "status": "PASS",
+      "result_origin": "this_run",
+      "started_at": "2026-10-25T04:43:49Z",
+      "finished_at": "2026-10-25T04:43:49Z",
+      "command": "python3 -m unittest -v tests.test_pricing_boundaries",
+      "exit_code": 1,
+      "environment": "local Darwin 24.3.0, Python 3.12.1",
+      "evidence_refs": [
+        "evidence/03-boundary-suite.log"
+      ],
+      "failure_category": null,
+      "notes": "Test reported 'ok' in the log; the suite exit code 1 is caused by TC-004 only."
+    },
+    {
+      "run_id": "RUN-20261025T044345Z",
+      "test_case_id": "TC-002",
+      "status": "PASS",
+      "result_origin": "this_run",
+      "started_at": "2026-10-25T04:43:49Z",
+      "finished_at": "2026-10-25T04:43:49Z",
+      "command": "python3 -m unittest -v tests.test_pricing_boundaries",
+      "exit_code": 1,
+      "environment": "local Darwin 24.3.0, Python 3.12.1",
+      "evidence_refs": [
+        "evidence/03-boundary-suite.log"
+      ],
+      "failure_category": null,
+      "notes": "Test reported 'ok' in the log; the suite exit code 1 is caused by TC-004 only."
+    },
+    {
+      "run_id": "RUN-20261025T044345Z",
+      "test_case_id": "TC-003",
+      "status": "PASS",
+      "result_origin": "this_run",
+      "started_at": "2026-10-25T04:43:49Z",
+      "finished_at": "2026-10-25T04:43:49Z",
+      "command": "python3 -m unittest -v tests.test_pricing_boundaries",
+      "exit_code": 1,
+      "environment": "local Darwin 24.3.0, Python 3.12.1",
+      "evidence_refs": [
+        "evidence/03-boundary-suite.log"
+      ],
+      "failure_category": null,
+      "notes": "Test reported 'ok' in the log; the suite exit code 1 is caused by TC-004 only."
+    },
+    {
+      "run_id": "RUN-20261025T044345Z",
+      "test_case_id": "TC-004",
+      "status": "FAIL",
+      "result_origin": "this_run",
+      "started_at": "2026-10-25T04:43:50Z",
+      "finished_at": "2026-10-25T04:43:50Z",
+      "command": "python3 -m unittest -v tests.test_pricing_boundaries.PricingBoundaryTest.test_tc004_exactly_500_gets_ten_percent",
+      "exit_code": 1,
+      "environment": "local Darwin 24.3.0, Python 3.12.1",
+      "evidence_refs": [
+        "evidence/03-boundary-suite.log",
+        "evidence/04-rerun-tc004.log"
+      ],
+      "failure_category": "product_defect_candidate",
+      "notes": "final_price(500.00) returned 475.00 (5%) instead of 450.00 (10%). Reproduced on rerun; see DEF-001."
+    },
+    {
+      "run_id": "RUN-20261025T044345Z",
+      "test_case_id": "TC-005",
+      "status": "PASS",
+      "result_origin": "this_run",
+      "started_at": "2026-10-25T04:43:49Z",
+      "finished_at": "2026-10-25T04:43:49Z",
+      "command": "python3 -m unittest -v tests.test_pricing_boundaries",
+      "exit_code": 1,
+      "environment": "local Darwin 24.3.0, Python 3.12.1",
+      "evidence_refs": [
+        "evidence/03-boundary-suite.log"
+      ],
+      "failure_category": null,
+      "notes": "Test reported 'ok' in the log; the suite exit code 1 is caused by TC-004 only."
+    },
+    {
+      "run_id": "RUN-20261025T044345Z",
+      "test_case_id": "TC-006",
+      "status": "PASS",
+      "result_origin": "this_run",
+      "started_at": "2026-10-25T04:43:49Z",
+      "finished_at": "2026-10-25T04:43:49Z",
+      "command": "python3 -m unittest -v tests.test_pricing_boundaries",
+      "exit_code": 1,
+      "environment": "local Darwin 24.3.0, Python 3.12.1",
+      "evidence_refs": [
+        "evidence/03-boundary-suite.log"
+      ],
+      "failure_category": null,
+      "notes": "Test reported 'ok' in the log; the suite exit code 1 is caused by TC-004 only."
+    },
+    {
+      "run_id": "RUN-20261025T044345Z",
+      "test_case_id": "TC-007",
+      "status": "PASS",
+      "result_origin": "this_run",
+      "started_at": "2026-10-25T04:43:49Z",
+      "finished_at": "2026-10-25T04:43:49Z",
+      "command": "python3 -m unittest -v tests.test_pricing_boundaries",
+      "exit_code": 1,
+      "environment": "local Darwin 24.3.0, Python 3.12.1",
+      "evidence_refs": [
+        "evidence/03-boundary-suite.log"
+      ],
+      "failure_category": null,
+      "notes": "Test reported 'ok' in the log; the suite exit code 1 is caused by TC-004 only."
+    },
+    {
+      "run_id": "RUN-20261025T044345Z",
+      "test_case_id": "TC-008",
+      "status": "PASS",
+      "result_origin": "this_run",
+      "started_at": "2026-10-25T04:43:49Z",
+      "finished_at": "2026-10-25T04:43:49Z",
+      "command": "python3 -m unittest -v tests.test_pricing_boundaries",
+      "exit_code": 1,
+      "environment": "local Darwin 24.3.0, Python 3.12.1",
+      "evidence_refs": [
+        "evidence/03-boundary-suite.log"
+      ],
+      "failure_category": null,
+      "notes": "Test reported 'ok' in the log; the suite exit code 1 is caused by TC-004 only."
+    },
+    {
+      "run_id": "RUN-20261025T044345Z",
+      "test_case_id": "TC-009",
+      "status": "PASS",
+      "result_origin": "this_run",
+      "started_at": "2026-10-25T04:43:49Z",
+      "finished_at": "2026-10-25T04:43:49Z",
+      "command": "python3 -m unittest -v tests.test_pricing_boundaries",
+      "exit_code": 1,
+      "environment": "local Darwin 24.3.0, Python 3.12.1",
+      "evidence_refs": [
+        "evidence/03-boundary-suite.log"
+      ],
+      "failure_category": null,
+      "notes": "Test reported 'ok' in the log; the suite exit code 1 is caused by TC-004 only."
+    },
+    {
+      "run_id": "RUN-20261025T044345Z",
+      "test_case_id": "TC-010",
+      "status": "PASS",
+      "result_origin": "this_run",
+      "started_at": "2026-10-25T04:43:48Z",
+      "finished_at": "2026-10-25T04:43:48Z",
+      "command": "python3 -m unittest -v tests.test_pricing",
+      "exit_code": 0,
+      "environment": "local Darwin 24.3.0, Python 3.12.1",
+      "evidence_refs": [
+        "evidence/02-existing-suite.log"
+      ],
+      "failure_category": null,
+      "notes": "4/4 existing tests ok."
+    }
+  ]
+}

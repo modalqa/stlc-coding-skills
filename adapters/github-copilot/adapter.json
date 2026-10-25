@@ -1,0 +1,17 @@
+{
+  "adapter": "github-copilot",
+  "platform": "GitHub Copilot (agent mode)",
+  "status": "experimental",
+  "tested_versions": [],
+  "project_skill_dir": ".github/skills",
+  "user_skill_dir": "~/.copilot/skills",
+  "alternate_project_dirs": [
+    ".agents/skills",
+    ".claude/skills"
+  ],
+  "invocation": "In agent mode, Copilot discovers skills and activates one when the request matches its description.",
+  "extra_frontmatter": {},
+  "docs": "https://learn.microsoft.com/en-us/visualstudio/ide/copilot-agent-skills",
+  "docs_checked_on": "2026-10-25",
+  "evaluation_reports": []
+}

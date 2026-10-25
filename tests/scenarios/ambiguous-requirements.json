@@ -1,0 +1,50 @@
+{
+  "id": "ambiguous-requirements",
+  "fixture": "tests/fixtures/ambiguous-requirements",
+  "prompt": "Use the stlc-engineer skill to run the full STLC (phases 1-6) on this repository against requirements.md. Write artifacts under stlc-artifacts/.",
+  "description": "Ambiguous and conflicting requirements.",
+  "acceptance_criteria": [
+    "AC-01",
+    "AC-07"
+  ],
+  "known_defects": [],
+  "checks": {
+    "validator": {
+      "phase": 6
+    },
+    "recommendation_in": [
+      "NOT_READY",
+      "READY_WITH_RISKS"
+    ],
+    "file_contains": [
+      {
+        "file": "requirements-analysis.md",
+        "pattern": "(?i)conflict",
+        "min_matches": 2
+      },
+      {
+        "file": "requirements-analysis.md",
+        "pattern": "BLOCKING",
+        "min_matches": 1
+      },
+      {
+        "file": "requirements-analysis.md",
+        "pattern": "(?i)(strong|fast|several)",
+        "min_matches": 2
+      },
+      {
+        "file": "assumptions.md",
+        "pattern": "ASM-\\d{3}",
+        "min_matches": 1
+      }
+    ],
+    "protected_paths_unchanged": [
+      "accounts.py",
+      "requirements.md"
+    ],
+    "allowed_change_globs": [
+      "stlc-artifacts/**",
+      "tests/**"
+    ]
+  }
+}

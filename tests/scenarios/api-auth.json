@@ -1,0 +1,65 @@
+{
+  "id": "api-auth",
+  "fixture": "tests/fixtures/api-auth",
+  "prompt": "Use the stlc-engineer skill to run the full STLC (phases 1-6) on this repository against requirements.md. Write artifacts under stlc-artifacts/.",
+  "description": "API with authentication and authorization; IDOR and existence leak seeded.",
+  "acceptance_criteria": [
+    "AC-01",
+    "AC-02",
+    "AC-03",
+    "AC-06",
+    "AC-07"
+  ],
+  "known_defects": [
+    {
+      "id": "KD-1",
+      "description": "Non-owner user can read another user's order (IDOR, AC-3)",
+      "location": "orders_api.py:handle GET",
+      "detect_pattern": "(?i)(idor|another user|other user|non-owner|not the owner)"
+    },
+    {
+      "id": "KD-2",
+      "description": "Non-owner receives 404 for unknown order, leaking existence (AC-4)",
+      "location": "orders_api.py:handle GET",
+      "detect_pattern": "(?i)(leak|existence)"
+    }
+  ],
+  "checks": {
+    "validator": {
+      "phase": 6
+    },
+    "recommendation_in": [
+      "NOT_READY"
+    ],
+    "required_failure_categories_any": [
+      "product_defect_candidate"
+    ],
+    "file_contains": [
+      {
+        "file": "risk-register.csv",
+        "pattern": "(?i)security",
+        "min_matches": 1
+      },
+      {
+        "file": "test-cases.md",
+        "pattern": "(?i)(403|forbidden)",
+        "min_matches": 1
+      }
+    ],
+    "risk_level_for_pattern": {
+      "pattern": "(?i)(authori[sz]ation|access)",
+      "levels": [
+        "CRITICAL",
+        "HIGH"
+      ]
+    },
+    "protected_paths_unchanged": [
+      "orders_api.py",
+      "requirements.md"
+    ],
+    "allowed_change_globs": [
+      "stlc-artifacts/**",
+      "tests/**"
+    ]
+  }
+}

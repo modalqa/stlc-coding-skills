@@ -1,0 +1,7 @@
+$ python3 -c "import os, sys; print('DATABASE_URL set' if 'DATABASE_URL' in os.environ else 'DATABASE_URL not set'); sys.exit(0 if 'DATABASE_URL' in os.environ else 1)"
+# cwd: <workdir>
+# started_at: 2026-10-25T04:47:03Z
+# finished_at: 2026-10-25T04:47:03Z
+# exit_code: 1
+
+DATABASE_URL not set

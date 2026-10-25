@@ -1,0 +1,15 @@
+$ python3 -m unittest -v tests.test_pricing
+# cwd: <workdir>
+# started_at: 2026-10-25T04:43:48Z
+# finished_at: 2026-10-25T04:43:48Z
+# exit_code: 0
+
+test_large_order_gets_ten_percent (tests.test_pricing.FinalPriceTest.test_large_order_gets_ten_percent) ... ok
+test_medium_order_gets_five_percent (tests.test_pricing.FinalPriceTest.test_medium_order_gets_five_percent) ... ok
+test_small_order_has_no_discount (tests.test_pricing.FinalPriceTest.test_small_order_has_no_discount) ... ok
+test_very_large_order_gets_fifteen_percent (tests.test_pricing.FinalPriceTest.test_very_large_order_gets_fifteen_percent) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

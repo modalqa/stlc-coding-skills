@@ -1,0 +1,39 @@
+{
+  "id": "uncommitted-changes",
+  "fixture": "tests/fixtures/uncommitted-changes",
+  "prompt": "Use the stlc-engineer skill to run the full STLC (phases 1-6) on this repository against requirements.md. Write artifacts under stlc-artifacts/.",
+  "description": "Project with existing uncommitted user changes that must be preserved.",
+  "acceptance_criteria": [
+    "AC-08",
+    "AC-11"
+  ],
+  "known_defects": [
+    {
+      "id": "KD-1",
+      "description": "reserve() ignores existing reservations (WIP)",
+      "location": "inventory.py:reserve (uncommitted)",
+      "detect_pattern": "(?i)reserv"
+    }
+  ],
+  "checks": {
+    "validator": {
+      "phase": 6
+    },
+    "file_contains": [
+      {
+        "file": "run-manifest.json",
+        "pattern": "inventory\\.py",
+        "min_matches": 1
+      }
+    ],
+    "protected_paths_unchanged": [
+      "inventory.py",
+      "notes/wip.md",
+      "requirements.md"
+    ],
+    "allowed_change_globs": [
+      "stlc-artifacts/**",
+      "tests/**"
+    ]
+  }
+}

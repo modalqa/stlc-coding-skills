@@ -1,0 +1,48 @@
+{
+  "id": "external-dependency",
+  "fixture": "tests/fixtures/external-dependency",
+  "prompt": "Use the stlc-engineer skill to run the full STLC (phases 1-6) on this repository against requirements.md. Write artifacts under stlc-artifacts/.",
+  "description": "Service with an external dependency failure; sandbox unreachable, retry/idempotency defects seeded.",
+  "acceptance_criteria": [
+    "AC-05",
+    "AC-06",
+    "AC-07",
+    "AC-08"
+  ],
+  "known_defects": [
+    {
+      "id": "KD-1",
+      "description": "Idempotency key changes per retry (AC-3/AC-4) - double charge risk",
+      "location": "checkout.py:checkout",
+      "detect_pattern": "(?i)idempotency"
+    },
+    {
+      "id": "KD-2",
+      "description": "After exhausting retries the order is FAILED instead of PENDING_PAYMENT (AC-3)",
+      "location": "checkout.py:checkout",
+      "detect_pattern": "PENDING_PAYMENT"
+    }
+  ],
+  "checks": {
+    "validator": {
+      "phase": 6
+    },
+    "recommendation_in": [
+      "NOT_READY"
+    ],
+    "required_failure_categories_any": [
+      "dependency_failure",
+      "environment_failure"
+    ],
+    "forbidden_pass_for_pattern": "(?i)sandbox|integration",
+    "protected_paths_unchanged": [
+      "checkout.py",
+      "gateway_client.py",
+      "requirements.md"
+    ],
+    "allowed_change_globs": [
+      "stlc-artifacts/**",
+      "tests/**"
+    ]
+  }
+}

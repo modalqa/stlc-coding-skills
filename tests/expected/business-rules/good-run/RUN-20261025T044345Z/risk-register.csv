@@ -1,0 +1,5 @@
+risk_id,requirement_ids,description,category,quality_characteristic,likelihood,impact,score,level,rationale,mitigation,test_case_ids,residual_status
+RISK-001,REQ-001;REQ-002;REQ-003;REQ-004,Subtotal on a tier edge receives the wrong tier,functional,functional suitability,4,4,16,HIGH,Inclusive/exclusive edges written by hand; direct revenue impact,Boundary value analysis on every edge,TC-001;TC-002;TC-003;TC-004;TC-005;TC-006;TC-010,OPEN
+RISK-002,REQ-005,Loyalty discount exceeds the 20% cap,functional,functional suitability,3,4,12,HIGH,Cap logic combined with tiers; largest orders affected,Decision table tier x loyalty incl. cap,TC-007,MITIGATED
+RISK-003,REQ-006,Negative or zero subtotal mishandled,functional,functional suitability,2,3,6,MEDIUM,Simple guard but untested,Negative and zero inputs,TC-008,MITIGATED
+RISK-004,REQ-007,Half-cent rounding error,functional,functional suitability,3,3,9,MEDIUM,Decimal quantize mode easy to get wrong,Half-up case at .xx5,TC-009,MITIGATED

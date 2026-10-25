@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "run_id": "RUN-20261025T044700Z",
+  "environment": {
+    "os": "Darwin 24.3.0",
+    "runtime": "Python 3.12.1",
+    "test_framework": "unittest (stdlib)",
+    "ci": false,
+    "git_commit": "17736495df036eed27c9376b6082a9199d03e9f3",
+    "git_dirty": false
+  },
+  "commands": [
+    {
+      "command": "python3 -c 'import psycopg'",
+      "started_at": "2026-10-25T04:47:02Z",
+      "finished_at": "2026-10-25T04:47:02Z",
+      "exit_code": 1,
+      "log_ref": "evidence/01-check-driver.log"
+    },
+    {
+      "command": "python3 -c \"import os, sys; print('DATABASE_URL set' if 'DATABASE_URL' in os.environ else 'DATABASE_URL not set'); sys.exit(0 if 'DATABASE_URL' in os.environ else 1)\"",
+      "started_at": "2026-10-25T04:47:03Z",
+      "finished_at": "2026-10-25T04:47:03Z",
+      "exit_code": 1,
+      "log_ref": "evidence/02-check-database-url.log"
+    },
+    {
+      "command": "python3 -m unittest -v tests.test_ledger",
+      "started_at": "2026-10-25T04:47:04Z",
+      "finished_at": "2026-10-25T04:47:04Z",
+      "exit_code": 1,
+      "log_ref": "evidence/03-ledger-suite.log"
+    }
+  ],
+  "results": [
+    {
+      "run_id": "RUN-20261025T044700Z",
+      "test_case_id": "TC-001",
+      "status": "BLOCKED",
+      "result_origin": "this_run",
+      "started_at": "2026-10-25T04:47:04Z",
+      "finished_at": "2026-10-25T04:47:04Z",
+      "command": "python3 -m unittest -v tests.test_ledger",
+      "exit_code": 1,
+      "environment": "local Darwin 24.3.0, Python 3.12.1, no PostgreSQL",
+      "evidence_refs": [
+        "evidence/01-check-driver.log",
+        "evidence/03-ledger-suite.log"
+      ],
+      "failure_category": "environment_failure",
+      "notes": "Module import failed (psycopg not installed); test never reached its assertion."
+    },
+    {
+      "run_id": "RUN-20261025T044700Z",
+      "test_case_id": "TC-002",
+      "status": "BLOCKED",
+      "result_origin": "this_run",
+      "started_at": "2026-10-25T04:47:04Z",
+      "finished_at": "2026-10-25T04:47:04Z",
+      "command": "python3 -m unittest -v tests.test_ledger",
+      "exit_code": 1,
+      "environment": "local Darwin 24.3.0, Python 3.12.1, no PostgreSQL",
+      "evidence_refs": [
+        "evidence/01-check-driver.log",
+        "evidence/03-ledger-suite.log"
+      ],
+      "failure_category": "environment_failure",
+      "notes": "Same import failure; the validation logic was not exercised."
+    },
+    {
+      "run_id": "RUN-20261025T044700Z",
+      "test_case_id": "TC-003",
+      "status": "NOT_RUN",
+      "result_origin": "not_executed",
+      "started_at": null,
+      "finished_at": null,
+      "command": null,
+      "exit_code": null,
+      "environment": "local Darwin 24.3.0, Python 3.12.1, no PostgreSQL",
+      "evidence_refs": [],
+      "failure_category": null,
+      "notes": "Not implemented and not executable without a database (gate D blocked)."
+    },
+    {
+      "run_id": "RUN-20261025T044700Z",
+      "test_case_id": "TC-004",
+      "status": "NOT_RUN",
+      "result_origin": "not_executed",
+      "started_at": null,
+      "finished_at": null,
+      "command": null,
+      "exit_code": null,
+      "environment": "local Darwin 24.3.0, Python 3.12.1, no PostgreSQL",
+      "evidence_refs": [],
+      "failure_category": null,
+      "notes": "Manual schema review impossible: the schema is not in the repository."
+    }
+  ]
+}

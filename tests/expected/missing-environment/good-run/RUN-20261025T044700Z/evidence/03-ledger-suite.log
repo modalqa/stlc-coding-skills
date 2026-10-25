@@ -1,0 +1,28 @@
+$ python3 -m unittest -v tests.test_ledger
+# cwd: <workdir>
+# started_at: 2026-10-25T04:47:04Z
+# finished_at: 2026-10-25T04:47:04Z
+# exit_code: 1
+
+test_ledger (unittest.loader._FailedTest.test_ledger) ... ERROR
+
+======================================================================
+ERROR: test_ledger (unittest.loader._FailedTest.test_ledger)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_ledger
+Traceback (most recent call last):
+  File "<python-home>/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workdir>/tests/test_ledger.py", line 4, in <module>
+    from ledger import Ledger, connect
+  File "<workdir>/ledger.py", line 5, in <module>
+    import psycopg  # third-party driver; must be installed in the test environment
+    ^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'psycopg'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

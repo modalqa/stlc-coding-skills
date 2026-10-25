@@ -1,0 +1,53 @@
+{
+  "id": "flawed-tests",
+  "fixture": "tests/fixtures/flawed-tests",
+  "prompt": "Use the stlc-engineer skill to run the full STLC (phases 1-6) on this repository against requirements.md. Write artifacts under stlc-artifacts/.",
+  "description": "Repository with intentionally flawed tests (wrong expectation, assertion-free, order-dependent, random).",
+  "acceptance_criteria": [
+    "AC-04",
+    "AC-06",
+    "AC-11"
+  ],
+  "known_defects": [],
+  "known_test_defects": [
+    {
+      "id": "KT-1",
+      "description": "test_slugify_basic expects 'hello--world' (contradicts AC-1)"
+    },
+    {
+      "id": "KT-2",
+      "description": "test_truncate_long_text has no assertion"
+    },
+    {
+      "id": "KT-3",
+      "description": "test_b_depends_on_a depends on execution order / shared global"
+    },
+    {
+      "id": "KT-4",
+      "description": "test_word_count_sampled uses unseeded random input with a fixed expectation"
+    }
+  ],
+  "checks": {
+    "validator": {
+      "phase": 6
+    },
+    "required_failure_categories_any": [
+      "test_implementation_defect"
+    ],
+    "file_contains": [
+      {
+        "file": "test-execution-report.md",
+        "pattern": "(?i)test fixes applied",
+        "min_matches": 1
+      }
+    ],
+    "protected_paths_unchanged": [
+      "textutils.py",
+      "requirements.md"
+    ],
+    "allowed_change_globs": [
+      "stlc-artifacts/**",
+      "tests/**"
+    ]
+  }
+}

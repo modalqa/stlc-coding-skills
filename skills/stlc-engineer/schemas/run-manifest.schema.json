@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/stlc-engineer/run-manifest.schema.json",
+  "title": "STLC run manifest",
+  "type": "object",
+  "required": ["run_id", "skill_version", "created_at", "context", "current_phase", "phases", "activities"],
+  "properties": {
+    "run_id": {"type": "string", "pattern": "^RUN-\\d{8}T\\d{6}Z(-[A-Za-z0-9]+)?$"},
+    "skill_version": {"type": "string"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "context": {
+      "type": "object",
+      "required": ["repository", "git_commit", "git_dirty", "discovered_test_commands"]
+    },
+    "current_phase": {"type": "integer", "minimum": 1, "maximum": 6},
+    "phases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["phase", "status", "gate", "gate_status"],
+        "properties": {
+          "phase": {"type": "integer", "minimum": 1, "maximum": 6},
+          "status": {"enum": ["NOT_STARTED", "IN_PROGRESS", "COMPLETED", "BLOCKED", "SKIPPED"]},
+          "gate": {"enum": ["A", "B", "C", "D", "E", "F"]},
+          "gate_status": {"enum": ["PASSED", "PASSED_WITH_LIMITATIONS", "BLOCKED", "NOT_EVALUATED"]},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "activities": {"type": "array"},
+    "blockers": {"type": "array"},
+    "authorizations": {"type": "array"}
+  }
+}

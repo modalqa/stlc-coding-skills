@@ -1,0 +1,44 @@
+{
+  "id": "missing-environment",
+  "fixture": "tests/fixtures/missing-environment",
+  "prompt": "Use the stlc-engineer skill to run the full STLC (phases 1-6) on this repository against requirements.md. Write artifacts under stlc-artifacts/.",
+  "description": "Tests cannot execute: PostgreSQL, psycopg and DATABASE_URL are unavailable.",
+  "acceptance_criteria": [
+    "AC-05",
+    "AC-07",
+    "AC-08"
+  ],
+  "known_defects": [],
+  "checks": {
+    "validator": {
+      "phase": 6
+    },
+    "recommendation_in": [
+      "NOT_READY"
+    ],
+    "closure_status_in": [
+      "INCOMPLETE",
+      "BLOCKED"
+    ],
+    "max_status_count": {
+      "FAIL": 0
+    },
+    "required_failure_categories_any": [
+      "environment_failure",
+      "dependency_failure"
+    ],
+    "protected_paths_unchanged": [
+      "ledger.py",
+      "requirements.md",
+      "tests/test_ledger.py"
+    ],
+    "allowed_change_globs": [
+      "stlc-artifacts/**",
+      "tests/**"
+    ],
+    "min_status_count": {
+      "BLOCKED+NOT_RUN": 1
+    },
+    "forbidden_pass_for_pattern": "(?i)(atomic|transaction|rollback)"
+  }
+}

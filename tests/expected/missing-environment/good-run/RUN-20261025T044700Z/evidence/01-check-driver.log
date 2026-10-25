@@ -1,0 +1,9 @@
+$ python3 -c 'import psycopg'
+# cwd: <workdir>
+# started_at: 2026-10-25T04:47:02Z
+# finished_at: 2026-10-25T04:47:02Z
+# exit_code: 1
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'psycopg'

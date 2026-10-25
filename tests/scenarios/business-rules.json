@@ -1,0 +1,62 @@
+{
+  "id": "business-rules",
+  "fixture": "tests/fixtures/business-rules",
+  "prompt": "Use the stlc-engineer skill to run the full STLC (phases 1-6) on this repository against requirements.md. Write artifacts under stlc-artifacts/.",
+  "description": "Business-rule calculation with boundary conditions; seeded boundary defect.",
+  "acceptance_criteria": [
+    "AC-01",
+    "AC-02",
+    "AC-03",
+    "AC-04",
+    "AC-06",
+    "AC-07"
+  ],
+  "known_defects": [
+    {
+      "id": "KD-1",
+      "description": "Subtotal 500.00 receives 5% instead of 10% (uses > instead of >=)",
+      "location": "pricing.py:base_discount",
+      "detect_pattern": "(?i)500"
+    }
+  ],
+  "checks": {
+    "validator": {
+      "phase": 6
+    },
+    "recommendation_in": [
+      "NOT_READY"
+    ],
+    "required_failure_categories_any": [
+      "product_defect_candidate"
+    ],
+    "min_status_count": {
+      "PASS": 1,
+      "FAIL": 1
+    },
+    "file_contains": [
+      {
+        "file": "test-cases.md",
+        "pattern": "(?i)boundary value analysis",
+        "min_matches": 1
+      },
+      {
+        "file": "test-cases.md",
+        "pattern": "(?i)test_type:\\*\\*\\s*negative",
+        "min_matches": 1
+      },
+      {
+        "file": "defect-candidates.md",
+        "pattern": "500",
+        "min_matches": 1
+      }
+    ],
+    "protected_paths_unchanged": [
+      "pricing.py",
+      "requirements.md"
+    ],
+    "allowed_change_globs": [
+      "stlc-artifacts/**",
+      "tests/**"
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+# Development and CI security tooling only. The skill itself has no runtime dependencies.
+# Licenses reviewed in docs/third-party-licenses.md. Versions checked on PyPI on 2026-10-25.
+bandit==1.9.4
+pip-audit==2.10.1

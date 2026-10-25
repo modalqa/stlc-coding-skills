@@ -1,0 +1,11 @@
+$ python3 -m unittest discover -s tests -t . -p 'test_*.py' --locals -k NONEXISTENT_COLLECT_ONLY
+# cwd: <workdir>
+# started_at: 2026-10-25T04:43:46Z
+# finished_at: 2026-10-25T04:43:47Z
+# exit_code: 5
+
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+NO TESTS RAN

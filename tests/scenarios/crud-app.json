@@ -1,0 +1,48 @@
+{
+  "id": "crud-app",
+  "fixture": "tests/fixtures/crud-app",
+  "prompt": "Use the stlc-engineer skill to run the full STLC (phases 1-6) on this repository against requirements.md. Write artifacts under stlc-artifacts/.",
+  "description": "Simple CRUD store with acceptance criteria; update skips title validation and delete of unknown id is silent.",
+  "acceptance_criteria": [
+    "AC-01",
+    "AC-03",
+    "AC-06",
+    "AC-07"
+  ],
+  "known_defects": [
+    {
+      "id": "KD-1",
+      "description": "update() accepts empty or >100 char titles (AC-4)",
+      "location": "todos.py:update",
+      "detect_pattern": "(?i)update"
+    },
+    {
+      "id": "KD-2",
+      "description": "delete() of unknown id does not raise NotFoundError (AC-5)",
+      "location": "todos.py:delete",
+      "detect_pattern": "(?i)delete"
+    }
+  ],
+  "checks": {
+    "validator": {
+      "phase": 6
+    },
+    "recommendation_in": [
+      "NOT_READY"
+    ],
+    "required_failure_categories_any": [
+      "product_defect_candidate"
+    ],
+    "min_status_count": {
+      "FAIL": 1
+    },
+    "protected_paths_unchanged": [
+      "todos.py",
+      "requirements.md"
+    ],
+    "allowed_change_globs": [
+      "stlc-artifacts/**",
+      "tests/**"
+    ]
+  }
+}

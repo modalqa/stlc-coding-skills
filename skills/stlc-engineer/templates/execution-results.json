@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "run_id": "{{RUN-ID}}",
+  "environment": {
+    "os": "{{os and version}}",
+    "runtime": "{{language runtime and version}}",
+    "test_framework": "{{framework and version}}",
+    "ci": false,
+    "git_commit": "{{sha or null}}",
+    "git_dirty": "{{true|false}}"
+  },
+  "commands": [
+    {
+      "command": "{{exact command executed}}",
+      "started_at": "{{ISO-8601}}",
+      "finished_at": "{{ISO-8601}}",
+      "exit_code": 0,
+      "log_ref": "evidence/{{log-file}}.log"
+    }
+  ],
+  "results": [
+    {
+      "run_id": "{{RUN-ID}}",
+      "test_case_id": "{{TC-001}}",
+      "status": "{{PASS|FAIL|BLOCKED|NOT_RUN|INCONCLUSIVE}}",
+      "result_origin": "{{this_run|previous_run|not_executed}}",
+      "started_at": "{{ISO-8601 or null}}",
+      "finished_at": "{{ISO-8601 or null}}",
+      "command": "{{command from commands[] or null}}",
+      "exit_code": null,
+      "environment": "{{short environment label}}",
+      "evidence_refs": [],
+      "failure_category": null,
+      "notes": "{{required for NOT_RUN/BLOCKED/INCONCLUSIVE}}"
+    }
+  ]
+}

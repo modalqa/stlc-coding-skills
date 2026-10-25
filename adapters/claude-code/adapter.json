@@ -1,0 +1,14 @@
+{
+  "adapter": "claude-code",
+  "platform": "Claude Code",
+  "status": "experimental",
+  "tested_versions": [],
+  "project_skill_dir": ".claude/skills",
+  "user_skill_dir": "~/.claude/skills",
+  "alternate_project_dirs": [],
+  "invocation": "Automatic when the request matches the description, or explicitly with /stlc-engineer [arguments].",
+  "extra_frontmatter": {},
+  "docs": "https://code.claude.com/docs/en/skills",
+  "docs_checked_on": "2026-10-25",
+  "evaluation_reports": []
+}

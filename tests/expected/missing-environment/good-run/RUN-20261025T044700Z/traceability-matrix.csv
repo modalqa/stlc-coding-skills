@@ -1,0 +1,5 @@
+requirement_id,requirement_priority,risk_ids,test_condition_id,test_case_id,execution_status,defect_ids,closure_decision,notes
+REQ-001,HIGH,RISK-003,TCOND-002,TC-002,BLOCKED,N/A,NOT_COVERED,Blocked by missing environment
+REQ-002,CRITICAL,RISK-002,TCOND-001,TC-001,BLOCKED,N/A,NOT_COVERED,Blocked by missing environment
+REQ-003,CRITICAL,RISK-001,TCOND-003,TC-003,NOT_RUN,N/A,NOT_COVERED,Not implemented; needs DB
+REQ-004,MEDIUM,RISK-004,TCOND-004,TC-004,NOT_RUN,N/A,NOT_COVERED,Schema absent

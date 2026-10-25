@@ -1,0 +1,5 @@
+risk_id,requirement_ids,description,category,quality_characteristic,likelihood,impact,score,level,rationale,mitigation,test_case_ids,residual_status
+RISK-001,REQ-003,Partial write desynchronises balance and entries,data,reliability,4,5,20,CRITICAL,Two statements; correctness depends on transaction use,Fault-injection integration test,TC-003,OPEN
+RISK-002,REQ-002,Balance computed incorrectly,data,functional suitability,3,5,15,HIGH,Upsert arithmetic in SQL,Integration test of sums,TC-001,OPEN
+RISK-003,REQ-001,Zero amount persisted,functional,functional suitability,2,3,6,MEDIUM,Guard exists in code,Negative test,TC-002,OPEN
+RISK-004,REQ-004,Entries mutable,data,security,2,4,8,MEDIUM,No enforcement visible in repo,Schema review,TC-004,OPEN

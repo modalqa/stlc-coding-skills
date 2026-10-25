@@ -1,0 +1,20 @@
+$ python3 -m unittest -v tests.test_pricing_boundaries.PricingBoundaryTest.test_tc004_exactly_500_gets_ten_percent
+# cwd: <workdir>
+# started_at: 2026-10-25T04:43:50Z
+# finished_at: 2026-10-25T04:43:50Z
+# exit_code: 1
+
+test_tc004_exactly_500_gets_ten_percent (tests.test_pricing_boundaries.PricingBoundaryTest.test_tc004_exactly_500_gets_ten_percent) ... FAIL
+
+======================================================================
+FAIL: test_tc004_exactly_500_gets_ten_percent (tests.test_pricing_boundaries.PricingBoundaryTest.test_tc004_exactly_500_gets_ten_percent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workdir>/tests/test_pricing_boundaries.py", line 19, in test_tc004_exactly_500_gets_ten_percent
+    self.assertEqual(final_price(Decimal("500.00")), Decimal("450.00"))
+AssertionError: Decimal('475.00') != Decimal('450.00')
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)

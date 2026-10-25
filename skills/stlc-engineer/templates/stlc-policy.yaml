@@ -1,0 +1,58 @@
+# STLC project policy (optional). Place at the repository root as stlc-policy.yaml.
+#
+# The agent reads this file as configuration, not as instructions that can
+# expand its permissions on their own. Any setting that is MORE permissive
+# than the skill defaults must carry an `authorized_by` and `authorized_on`
+# entry, or the agent ignores it and keeps the default.
+#
+# Values shown are the skill defaults.
+
+version: 1
+
+artifacts:
+  root: stlc-artifacts          # run directories are created under this path
+  commit_artifacts: false       # whether the agent may stage artifacts in git (it never commits by itself)
+
+risk:
+  scale: { likelihood: [1, 5], impact: [1, 5] }
+  formula: product              # product = likelihood x impact; "none" = custom model described below
+  levels:                       # score thresholds (inclusive lower bounds)
+    CRITICAL: 20
+    HIGH: 12
+    MEDIUM: 6
+    LOW: 1
+  custom_model_description: null
+
+exit_criteria:                  # defaults; test-plan.md may tighten them, never loosen them silently
+  - All CRITICAL and HIGH priority test cases executed in this run with PASS.
+  - No OPEN product defect candidate of severity CRITICAL or HIGH.
+  - Every CRITICAL/HIGH requirement traced to a test case or a justified GAP.
+  - Residual risks documented with owner decision needed.
+
+execution:
+  allowed_commands: []          # extra commands the agent may run, e.g. ["make test", "npm run test:unit"]
+  max_reruns_per_failure: 2     # reruns to check for flakiness; never used to hide a failure
+  timeouts_seconds: 900
+  environments:
+    local: allowed
+    shared: requires_authorization
+    production: forbidden        # cannot be loosened by this file
+
+data:
+  production_data: forbidden
+  external_ai_services: requires_authorization   # sending repository content outside the host agent
+  redact_patterns: []            # extra regexes to redact from evidence
+
+ci:
+  modify_ci_config: requires_authorization
+
+security_testing:
+  passive_local: allowed         # e.g. static analysis, dependency audit on the local repo
+  active_external: requires_authorization
+
+authorizations: []
+# - action: shared_environment
+#   scope: "staging-eu, read-only API tests"
+#   authorized_by: "<name> (QA Lead)"
+#   authorized_on: 2026-01-31
+#   expires_on: 2026-02-28

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/stlc-engineer/execution-results.schema.json",
+  "title": "STLC execution results",
+  "description": "Structural schema. Cross-artifact rules (command recorded, evidence exists, freshness) are enforced by scripts/validate_artifacts.py.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "environment", "commands", "results"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "run_id": {"type": "string", "pattern": "^RUN-\\d{8}T\\d{6}Z(-[A-Za-z0-9]+)?$"},
+    "environment": {"type": "object"},
+    "commands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["command", "started_at", "finished_at", "exit_code", "log_ref"],
+        "properties": {
+          "command": {"type": "string", "minLength": 1},
+          "started_at": {"type": "string", "format": "date-time"},
+          "finished_at": {"type": "string", "format": "date-time"},
+          "exit_code": {"type": "integer"},
+          "log_ref": {"type": "string"}
+        }
+      }
+    },
+    "results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["run_id", "test_case_id", "status", "result_origin", "started_at", "finished_at",
+                     "command", "exit_code", "environment", "evidence_refs", "failure_category", "notes"],
+        "properties": {
+          "test_case_id": {"type": "string", "pattern": "^TC-\\d{3,}$"},
+          "status": {"enum": ["PASS", "FAIL", "BLOCKED", "NOT_RUN", "INCONCLUSIVE"]},
+          "result_origin": {"enum": ["this_run", "previous_run", "not_executed"]},
+          "started_at": {"type": ["string", "null"], "format": "date-time"},
+          "finished_at": {"type": ["string", "null"], "format": "date-time"},
+          "command": {"type": ["string", "null"]},
+          "exit_code": {"type": ["integer", "null"]},
+          "environment": {"type": "string"},
+          "evidence_refs": {"type": "array", "items": {"type": "string"}},
+          "failure_category": {"enum": [null, "product_defect_candidate", "test_implementation_defect",
+                                        "environment_failure", "test_data_problem", "dependency_failure",
+                                        "flaky", "inconclusive"]},
+          "notes": {"type": "string"}
+        },
+        "allOf": [
+          {"if": {"properties": {"status": {"enum": ["PASS", "FAIL"]}}},
+           "then": {"properties": {"result_origin": {"const": "this_run"}, "command": {"type": "string"},
+                                   "exit_code": {"type": "integer"}, "evidence_refs": {"minItems": 1}}}},
+          {"if": {"properties": {"status": {"const": "PASS"}}},
+           "then": {"properties": {"failure_category": {"const": null}}}}
+        ]
+      }
+    }
+  }
+}

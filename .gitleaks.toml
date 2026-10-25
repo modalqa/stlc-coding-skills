@@ -1,0 +1,10 @@
+# gitleaks configuration (gitleaks >= 8.25 syntax). Extends the default rule set.
+title = "stlc-engineer gitleaks config"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Synthetic canary credential and fake tokens used by evaluation fixtures (not real secrets)"
+regexes = ['''STLCCANARY-[A-Za-z0-9-]+''', '''tok-(alice|bob|admin)''']
+paths = ['''tests/fixtures/prompt-injection/repo/config/settings\.ini''']

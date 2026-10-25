@@ -1,0 +1,106 @@
+{
+  "run_id": "RUN-20261025T044700Z",
+  "skill_version": "0.1.0",
+  "created_at": "2026-10-25T04:47:00Z",
+  "agent": "Golden reference run produced while implementing the skill (artifacts authored to the skill contract; execution and evidence are real).",
+  "trigger": "Run the full STLC on the ledger repository against requirements.md.",
+  "context": {
+    "repository": "tests/fixtures/missing-environment (evaluation fixture)",
+    "git_commit": "17736495df036eed27c9376b6082a9199d03e9f3",
+    "git_branch": "main",
+    "git_dirty": false,
+    "uncommitted_files": [],
+    "languages": [
+      "Python"
+    ],
+    "test_frameworks": [
+      "unittest (stdlib)"
+    ],
+    "discovered_test_commands": [
+      "python3 -m unittest discover -s tests -t . (README.md)"
+    ],
+    "required_env_vars": [
+      "DATABASE_URL"
+    ],
+    "policy_file": null
+  },
+  "current_phase": 6,
+  "phases": [
+    {
+      "phase": 1,
+      "name": "Requirement and Context Analysis",
+      "status": "COMPLETED",
+      "gate": "A",
+      "gate_status": "PASSED",
+      "notes": ""
+    },
+    {
+      "phase": 2,
+      "name": "Test Planning and Risk Assessment",
+      "status": "COMPLETED",
+      "gate": "B",
+      "gate_status": "PASSED",
+      "notes": ""
+    },
+    {
+      "phase": 3,
+      "name": "Test Analysis and Design",
+      "status": "COMPLETED",
+      "gate": "C",
+      "gate_status": "PASSED",
+      "notes": ""
+    },
+    {
+      "phase": 4,
+      "name": "Test Implementation",
+      "status": "BLOCKED",
+      "gate": "D",
+      "gate_status": "BLOCKED",
+      "notes": "TC-003 cannot be implemented and smoke-checked without a PostgreSQL instance; psycopg not installed."
+    },
+    {
+      "phase": 5,
+      "name": "Execution and Monitoring",
+      "status": "BLOCKED",
+      "gate": "E",
+      "gate_status": "BLOCKED",
+      "notes": "Environment readiness failed: psycopg missing, DATABASE_URL not set. No verdicts possible."
+    },
+    {
+      "phase": 6,
+      "name": "Evaluation and Closure",
+      "status": "COMPLETED",
+      "gate": "F",
+      "gate_status": "PASSED_WITH_LIMITATIONS",
+      "notes": "Closure produced as INCOMPLETE."
+    }
+  ],
+  "activities": [
+    {
+      "at": "2026-10-25T04:47:02Z",
+      "phase": 5,
+      "action": "python3 -c 'import psycopg'",
+      "outcome": "exit 1"
+    },
+    {
+      "at": "2026-10-25T04:47:03Z",
+      "phase": 5,
+      "action": "python3 -c \"import os, sys; print('DATABASE_URL set' if 'DATABASE_URL' in os.environ else 'DATABASE_URL not set'); sys.exit(0 if 'DATABASE_URL' in os.environ else 1)\"",
+      "outcome": "exit 1"
+    },
+    {
+      "at": "2026-10-25T04:47:04Z",
+      "phase": 5,
+      "action": "python3 -m unittest -v tests.test_ledger",
+      "outcome": "exit 1"
+    }
+  ],
+  "blockers": [
+    {
+      "phase": 5,
+      "blocker": "PostgreSQL test database unavailable (psycopg not installed; DATABASE_URL not set)",
+      "unblock": "Provide a disposable PostgreSQL 16+ database and DATABASE_URL, install psycopg"
+    }
+  ],
+  "authorizations": []
+}

@@ -1,0 +1,14 @@
+{
+  "adapter": "kilo-code",
+  "platform": "Kilo Code",
+  "status": "experimental",
+  "tested_versions": [],
+  "project_skill_dir": ".kilocode/skills",
+  "user_skill_dir": "~/.kilocode/skills",
+  "alternate_project_dirs": [],
+  "invocation": "Kilo loads skill metadata at startup and reads SKILL.md when a task matches the description.",
+  "extra_frontmatter": {},
+  "docs": "https://kilo.ai/docs/customize/skills",
+  "docs_checked_on": "2026-10-25",
+  "evaluation_reports": []
+}

@@ -1,0 +1,40 @@
+{
+  "run_id": "{{RUN-YYYYMMDDTHHMMSSZ}}",
+  "skill_version": "0.1.0",
+  "created_at": "{{ISO-8601 UTC timestamp, e.g. 2026-01-31T09:15:00Z}}",
+  "agent": "{{host agent and model, if known; otherwise null}}",
+  "trigger": "{{the user request or issue reference that started this run}}",
+  "context": {
+    "repository": "{{repository name or path}}",
+    "git_commit": "{{HEAD commit SHA or null if not a git repository}}",
+    "git_branch": "{{branch name or null}}",
+    "git_dirty": "{{true|false|null - uncommitted changes present}}",
+    "uncommitted_files": [],
+    "languages": [],
+    "test_frameworks": [],
+    "discovered_test_commands": [],
+    "required_env_vars": [],
+    "policy_file": "{{path to stlc-policy.yaml or null}}"
+  },
+  "current_phase": 1,
+  "phases": [
+    {
+      "phase": 1,
+      "name": "Requirement and Context Analysis",
+      "status": "IN_PROGRESS",
+      "gate": "A",
+      "gate_status": "NOT_EVALUATED",
+      "notes": ""
+    }
+  ],
+  "activities": [
+    {
+      "at": "{{ISO-8601 timestamp}}",
+      "phase": 1,
+      "action": "{{what was done, e.g. repository discovery}}",
+      "outcome": "{{result}}"
+    }
+  ],
+  "blockers": [],
+  "authorizations": []
+}
